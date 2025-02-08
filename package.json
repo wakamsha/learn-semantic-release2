@@ -1,6 +1,6 @@
 {
   "name": "tsconfig-app",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "description": "Learn how to use semantic-release.",
   "type": "module",
