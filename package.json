@@ -1,0 +1,37 @@
+{
+  "name": "tsconfig-app",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Learn how to use semantic-release.",
+  "type": "module",
+  "engines": {
+    "node": ">= 22.13.1"
+  },
+  "files": [
+    "tsconfig.app.json"
+  ],
+  "scripts": {
+    "release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wakamsha/learn-semantic-release2.git"
+  },
+  "keywords": [],
+  "author": "wakamsha <wakamsha@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wakamsha/learn-semantic-release2/issues"
+  },
+  "homepage": "https://github.com/wakamsha/learn-semantic-release2#readme",
+  "devDependencies": {
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/git": "10.0.1",
+    "conventional-changelog-conventionalcommits": "8.0.0",
+    "semantic-release": "24.2.1",
+    "typescript": "5.7.3"
+  },
+  "peerDependencies": {
+    "typescript": "5.7.3"
+  }
+}
