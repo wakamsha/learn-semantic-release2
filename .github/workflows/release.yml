@@ -1,4 +1,5 @@
 name: Release
+
 on:
   workflow_dispatch:
     inputs:
@@ -6,8 +7,10 @@ on:
         description: dry-run
         required: true
         type: boolean
+
 permissions:
   contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -18,17 +21,18 @@ jobs:
         with:
           app-id: ${{ secrets.BOT_APP_ID }}
           private-key: ${{ secrets.BOT_PRIVATE_KEY }}
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
+
       - name: Initialize
         uses: ./.github/actions/restore-node
-      - name: Verifying the signatures
-        run: npm audit signatures
+
       - name: Release
-        run: npm run release ${{ github.event.inputs.dry_run == 'true' && '-- --dry-run' || '' }}
+        run: pnpm -r --workspace-concurrency=1 release ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
